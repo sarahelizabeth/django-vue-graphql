@@ -1,12 +1,9 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
 
 import Post from '@/components/Post'
 import Author from '@/components/Author'
 import PostsByTag from '@/components/PostsByTag'
 import AllPosts from '@/components/AllPosts'
-
-Vue.use(VueRouter)
 
 const routes = [
   { path: '/author/:username', component: Author },
@@ -15,8 +12,9 @@ const routes = [
   { path: '/', component: AllPosts },
 ]
 
-const router = new VueRouter({
-  routes: routes,
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
 })
+
 export default router
